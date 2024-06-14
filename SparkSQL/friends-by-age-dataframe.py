@@ -23,9 +23,3 @@ friendsByAge.groupBy("age").agg(func.round(func.avg("friends"), 2)
             .alias("friends_avg")).sort("age").show()
 
 spark.stop()
-
-spark.stop()
-
-
-
-spark.stop()
