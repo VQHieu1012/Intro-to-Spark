@@ -11,7 +11,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Monitor the logs directory for new log data
-accessLines = spark.readStream.text(r"D:/Intro-to-Spark/data/logs/access_log.txt")
+accessLines = spark.readStream.text(r"data\logs")
 
 # Parse out the common log format to a DataFrame
 contentSizeExp = r'\s(\d+)$'
@@ -43,4 +43,4 @@ query = statusCountsDF.writeStream \
 # Run forever until terminated
 query.awaitTermination()
 
-
+spark.stop()
